@@ -534,7 +534,8 @@ class NER:
         if len(seen) > 0:
             fake_name_mapping_ex = {v: k for k, v in fake_name_mapping.items()}
             surfaces = [fake_name_mapping_ex.get(surface, surface) for surface in seen]
-            LogHelper.info(f"[查找实体词语] 通过 [green]模式匹配[/] 抓取到角色实体 - {", ".join(surfaces)}")
+            surfaces_str = ", ".join(surfaces)
+            LogHelper.info(f"[查找实体词语] 通过 [green]模式匹配[/] 抓取到角色实体 - {surfaces_str}")
 
         # 释放显存
         self.release() if self.gpu_boost else None

@@ -62,7 +62,8 @@ class LogHelper:
 
     @staticmethod
     def get_trackback(e: Exception) -> str:
-        return f"{e}\n{("".join(traceback.format_exception(None, e, e.__traceback__))).strip()}"
+        traceback_str = "".join(traceback.format_exception(None, e, e.__traceback__)).strip()
+        return f"{e}\n{traceback_str}"
 
     @staticmethod
     def debug(*args, **kwargs) -> None:

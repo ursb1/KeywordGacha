@@ -122,7 +122,8 @@ class LLM:
         # 获取 llama.cpp 响应数据
         try:
             response_json = None
-            with urllib.request.urlopen(f"{re.sub(r"/v1$", "", self.base_url)}/slots") as reader:
+            base_url_cleaned = re.sub(r"/v1$", "", self.base_url)
+            with urllib.request.urlopen(f"{base_url_cleaned}/slots") as reader:
                 response_json = repair.load(reader)
         except Exception:
             LogHelper.debug("无法获取 [green]llama.cpp[/] 响应数据 ...")

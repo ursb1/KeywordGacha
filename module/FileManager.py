@@ -187,7 +187,8 @@ class FileManager():
 
                 if len(getattr(word, "context_translation", [])) > 0:
                     writer.write("参考文本翻译 : ※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※" + "\n")
-                    writer.write(f"{FileManager.RE_DUPLICATE.sub("\n", "\n".join(word.context_translation))}" + "\n")
+                    translated_text = FileManager.RE_DUPLICATE.sub("\n", "\n".join(word.context_translation))
+                    writer.write(f"{translated_text}\n")
 
                 # 多写入一个换行符，确保每段信息之间有间隔
                 writer.write("\n")
